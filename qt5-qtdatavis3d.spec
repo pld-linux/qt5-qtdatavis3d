@@ -10,7 +10,7 @@ Summary:	The Qt5 Data Visualization libraries
 Summary(pl.UTF-8):	Biblioteki Qt5 Data Visualization
 Name:		qt5-%{orgname}
 Version:	5.15.2
-Release:	1
+Release:	2
 License:	LGPL v3 or GPL v2+ or commercial
 Group:		X11/Libraries
 Source0:	https://download.qt.io/official_releases/qt/5.15/%{version}/submodules/%{orgname}-everywhere-src-%{version}.tar.xz
@@ -141,30 +141,10 @@ rm -rf $RPM_BUILD_ROOT
 # actually drop *.la, follow policy of not packaging them when *.pc exist
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libQt5*.la
 
-# Prepare some files list
-ifecho() {
-	r="$RPM_BUILD_ROOT$2"
-	if [ -d "$r" ]; then
-		echo "%%dir $2" >> $1.files
-	elif [ -x "$r" ] ; then
-		echo "%%attr(755,root,root) $2" >> $1.files
-	elif [ -f "$r" ]; then
-		echo "$2" >> $1.files
-	else
-		echo "Error generation $1 files list!"
-		echo "$r: no such file or directory!"
-		return 1
-	fi
-}
-ifecho_tree() {
-	ifecho $1 $2
-	for f in `find $RPM_BUILD_ROOT$2 -printf "%%P "`; do
-		ifecho $1 $2/$f
-	done
-}
-
-echo "%defattr(644,root,root,755)" > examples.files
-ifecho_tree examples %{_examplesdir}/qt5/datavisualization
+# remove compiled examples (package only sources)
+for d in $RPM_BUILD_ROOT%{_examplesdir}/qt5/datavisualization/* ; do
+	[ -d "$d" ] && %{__rm} "$d/$(basename $d)"
+done
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -205,7 +185,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_docdir}/qt5-doc/qtdatavis3d.qch
 %endif
 
-%files examples -f examples.files
+%files examples
 %defattr(644,root,root,755)
 # XXX: dir shared with qt5-qtbase-examples
 %dir %{_examplesdir}/qt5
+%{_examplesdir}/qt5/datavisualization
