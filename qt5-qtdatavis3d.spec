@@ -6,8 +6,8 @@
 %define		qtbase_ver		%{version}
 %define		qtdeclarative_ver	%{version}
 %define		qttools_ver		%{version}
-Summary:	The Qt5 Data Visualization libraries
-Summary(pl.UTF-8):	Biblioteki Qt5 Data Visualization
+Summary:	The Qt5 Data Visualization library
+Summary(pl.UTF-8):	Biblioteka Qt5 Data Visualization
 Name:		qt5-%{orgname}
 Version:	5.15.2
 Release:	2
@@ -61,10 +61,10 @@ Requires:	Qt5Qml >= %{qtdeclarative_ver}
 Requires:	Qt5Quick >= %{qtdeclarative_ver}
 
 %description -n Qt5DataVisualization
-Qt5 DataVisualization libraries.
+Qt5 DataVisualization library.
 
 %description -n Qt5DataVisualization -l pl.UTF-8
-Biblioteki Qt5 DataVisualization.
+Biblioteka Qt5 DataVisualization.
 
 %package -n Qt5DataVisualization-devel
 Summary:	Qt5 DataVisualization - development files
@@ -107,7 +107,7 @@ Dokumentacja do biblioteki Qt5 DataVisualization w formacie QCH.
 
 %package examples
 Summary:	Qt5 DataVisualization examples
-Summary(pl.UTF-8):	Przykłady do bibliotek Qt5 DataVisualization
+Summary(pl.UTF-8):	Przykłady do biblioteki Qt5 DataVisualization
 Group:		X11/Development/Libraries
 BuildArch:	noarch
 
@@ -115,7 +115,7 @@ BuildArch:	noarch
 Qt5 DataVisualization examples.
 
 %description examples -l pl.UTF-8
-Przykłady do bibliotek Qt5 DataVisualization.
+Przykłady do biblioteki Qt5 DataVisualization.
 
 %prep
 %setup -q -n %{orgname}-everywhere-src-%{version}
