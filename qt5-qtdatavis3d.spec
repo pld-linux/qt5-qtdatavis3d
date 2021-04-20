@@ -71,6 +71,7 @@ Biblioteka Qt5 DataVisualization.
 Summary:	Qt5 DataVisualization - development files
 Summary(pl.UTF-8):	Biblioteka Qt5 DataVisualization - pliki programistyczne
 Group:		X11/Development/Libraries
+Requires:	Qt5DataVisualization = %{version}-%{release}
 Requires:	Qt5Core-devel >= %{qtbase_ver}
 Requires:	Qt5Gui-devel >= %{qtbase_ver}
 
