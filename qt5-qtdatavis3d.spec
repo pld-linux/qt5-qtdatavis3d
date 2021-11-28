@@ -10,7 +10,7 @@ Summary:	The Qt5 Data Visualization library
 Summary(pl.UTF-8):	Biblioteka Qt5 Data Visualization
 Name:		qt5-%{orgname}
 Version:	5.15.2
-Release:	3
+Release:	4
 License:	LGPL v3 or GPL v2+ or commercial
 Group:		X11/Libraries
 Source0:	https://download.qt.io/official_releases/qt/5.15/%{version}/submodules/%{orgname}-everywhere-src-%{version}.tar.xz
@@ -145,7 +145,7 @@ rm -rf $RPM_BUILD_ROOT
 
 # remove compiled examples (package only sources)
 for d in $RPM_BUILD_ROOT%{_examplesdir}/qt5/datavisualization/* ; do
-	[ -d "$d" ] && %{__rm} "$d/$(basename $d)"
+	[ -f "$d/$(basename $d)" ] && %{__rm} "$d/$(basename $d)"
 done
 
 %clean
