@@ -9,12 +9,12 @@
 Summary:	The Qt5 Data Visualization library
 Summary(pl.UTF-8):	Biblioteka Qt5 Data Visualization
 Name:		qt5-%{orgname}
-Version:	5.15.14
+Version:	5.15.15
 Release:	1
 License:	LGPL v3 or GPL v2+ or commercial
 Group:		X11/Libraries
 Source0:	https://download.qt.io/official_releases/qt/5.15/%{version}/submodules/%{orgname}-everywhere-opensource-src-%{version}.tar.xz
-# Source0-md5:	e66aa5fa0c579f8f55144ed33f0a3e8f
+# Source0-md5:	f530e358103ab222d9d85c50b093d672
 URL:		https://www.qt.io/
 BuildRequires:	Qt5Core-devel >= %{qtbase_ver}
 BuildRequires:	Qt5Gui-devel >= %{qtbase_ver}
